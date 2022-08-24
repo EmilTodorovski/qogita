@@ -6,7 +6,7 @@ type AddAction = {
 };
 
 type EditAction = {
-  type: "remove" | "increment" | "decrement";
+  type: "remove" | "increase" | "decrease";
   gtin: string;
 };
 
@@ -36,7 +36,7 @@ export const cartReducer = (
         });
       }
       return { cart: newCart };
-    case "increment":
+    case "increase":
       existingProduct = newCart.find(
         (cartProduct) => cartProduct.gtin === action.gtin
       );
@@ -49,7 +49,7 @@ export const cartReducer = (
         newCart[index] = newProduct;
       }
       return { cart: newCart };
-    case "decrement":
+    case "decrease":
       existingProduct = newCart.find(
         (cartProduct) => cartProduct.gtin === action.gtin
       );
@@ -58,11 +58,11 @@ export const cartReducer = (
         if (existingProduct.quantity > 1) {
           newProduct = {
             ...existingProduct,
-            quantity: existingProduct.quantity + 1,
+            quantity: existingProduct.quantity - 1,
           };
           newCart[index] = newProduct;
         } else {
-          newCart.splice(index, index);
+          newCart.splice(index, 1);
         }
       }
       return { cart: newCart };

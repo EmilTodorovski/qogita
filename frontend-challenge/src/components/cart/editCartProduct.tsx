@@ -10,14 +10,20 @@ type EditCartProductProps = {
 export const EditCartProduct = ({ product }: EditCartProductProps) => {
   const { cart, editCart } = useContext(CartContext);
 
-  const addButton = () => {
-    return editCart({ type: "add", product });
+  const onIncrease = () => {
+    return editCart({ type: "increase", gtin: product.gtin });
+  };
+
+  const onDecrease = () => {
+    return editCart({ type: "decrease", gtin: product.gtin });
   };
 
   return (
     <div>
       <ProductInfo product={product} />
-      <button onClick={addButton}>ADD ME</button>
+      <button onClick={onDecrease}>-</button>
+      {product.quantity}
+      <button onClick={onIncrease}>+</button>
     </div>
   );
 };

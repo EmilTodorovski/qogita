@@ -5,5 +5,15 @@ type ProductInfoProps = {
 };
 
 export const ProductInfo = ({ product }: ProductInfoProps) => {
-  return <div>{product.brandName}</div>;
+  return (
+    <div>
+      <div>{product.name}</div>
+      <div>{product.brandName}</div>
+      <div>{product.categoryName}</div>
+      <div>
+        {product.recommendedRetailPrice}
+        {product.recommendedRetailPriceCurrency}
+      </div>
+    </div>
+  );
 };

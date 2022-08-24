@@ -1,9 +1,9 @@
-import { useReducer } from "react";
+import { ReactNode, useReducer } from "react";
 import { CartContext } from "../../common/cartContext";
 import { cartInitialState, cartReducer } from "./cartReducer";
 
 type CartContextWrapperProps = {
-  children: JSX.Element | JSX.Element[];
+  children: ReactNode;
 };
 
 export const CartContextWrapper = ({ children }: CartContextWrapperProps) => {

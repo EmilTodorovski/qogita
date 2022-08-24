@@ -1,4 +1,5 @@
-import { useEffect, useReducer, useState } from "react";
+import { Pagination } from "@mui/material";
+import { useEffect, useReducer } from "react";
 import { CartApi } from "../../common/cartApi";
 import { ComponentState } from "../../common/componentState";
 import { PAGE_SIZE } from "../../common/consts";
@@ -37,7 +38,12 @@ export const ProductsSelection = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [page]);
+
+  const onPageChange = (_args: any, newPage: number) => {
+    console.log(newPage);
+    dispatch({ page: newPage });
+  };
 
   if (componentState === ComponentState.ERROR) {
     return <>ERROR STATE</>;
@@ -57,6 +63,7 @@ export const ProductsSelection = () => {
         {products.map((product) => (
           <AddProduct product={product} />
         ))}
+        <Pagination count={maxPage} page={page} onChange={onPageChange} />
       </span>
     </>
   );
