@@ -63,8 +63,8 @@ export const ProductsSelection = () => {
         {products.map((product) => (
           <AddProduct product={product} />
         ))}
-        <Pagination count={maxPage} page={page} onChange={onPageChange} />
       </span>
+      <Pagination count={maxPage} page={page} onChange={onPageChange} />
     </>
   );
 };

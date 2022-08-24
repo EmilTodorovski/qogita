@@ -1,0 +1,8 @@
+.addProduct {
+  border: 1px solid #ccc !important;
+  margin: 30px;
+  padding-bottom: 30px;
+}
+.addButtonWrapper {
+  text-align: center;
+}

@@ -1,0 +1,13 @@
+.productInfo {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+  align-items: center;
+}
+.productImg {
+  max-width: 100px;
+  max-height: 100px;
+}
+.propertyTitle {
+  font-weight: bold;
+}

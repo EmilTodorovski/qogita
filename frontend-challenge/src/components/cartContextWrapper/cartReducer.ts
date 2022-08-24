@@ -72,7 +72,7 @@ export const cartReducer = (
       );
       if (existingProduct) {
         index = newCart.indexOf(existingProduct);
-        newCart.splice(index, index);
+        newCart.splice(index, 1);
       }
       return { cart: newCart };
   }
