@@ -1,5 +1,5 @@
 import { ProductsSelection } from "../components/home/productsSelection";
-import Layout from "../components/Layout";
+import { Layout } from "../components/Layout";
 
 const HomePage = () => (
   <Layout>

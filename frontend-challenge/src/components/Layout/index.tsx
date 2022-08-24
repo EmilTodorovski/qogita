@@ -1,10 +1,10 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 type Props = {
   children: React.ReactNode;
 };
 
-const Layout = ({ children }: Props) => (
+export const Layout = ({ children }: Props) => (
   <div className="container mx-auto px-4">
     <div className="flex justify-between">
       <strong>Qogita</strong>
@@ -26,5 +26,3 @@ const Layout = ({ children }: Props) => (
     {children}
   </div>
 );
-
-export default Layout;
