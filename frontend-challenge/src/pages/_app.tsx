@@ -1,9 +1,12 @@
-import type { AppProps } from 'next/app';
+import type { AppProps } from "next/app";
+import { CartContextWrapper } from "../components/cartContextWrapper";
 
-import '../global.css';
+import "../global.css";
 
 const QogitaApp = ({ Component, pageProps }: AppProps): JSX.Element => (
-  <Component {...pageProps} />
+  <CartContextWrapper>
+    <Component {...pageProps} />
+  </CartContextWrapper>
 );
 
 export default QogitaApp;

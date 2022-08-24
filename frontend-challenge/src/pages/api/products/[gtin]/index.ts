@@ -1,6 +1,10 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import products from '../../../../../data/products.json';
-import { ErrorResponse, Product, ProductResponse } from '../../../../types';
+import type { NextApiRequest, NextApiResponse } from "next";
+import products from "../../../../../data/products.json";
+import {
+  ErrorResponse,
+  Product,
+  ProductResponse,
+} from "../../../../common/types";
 
 type GetProduct = (gtin: string) => Product | undefined;
 
@@ -10,27 +14,27 @@ const getProduct: GetProduct = (gtin) => {
 
 const handler = (
   request: NextApiRequest,
-  response: NextApiResponse<ProductResponse | ErrorResponse>,
+  response: NextApiResponse<ProductResponse | ErrorResponse>
 ): void => {
   const { method, query } = request;
   const { status } = response;
 
   switch (method) {
-    case 'GET': {
+    case "GET": {
       const stringifiedGtinQuery = Array.isArray(query.gtin)
-        ? query.gtin.join('')
+        ? query.gtin.join("")
         : query.gtin;
       const product = getProduct(stringifiedGtinQuery);
       if (product) {
         status(200).json(product);
       } else {
-        status(404).send('Not Found');
+        status(404).send("Not Found");
       }
       break;
     }
 
     default:
-      status(405).send('Method Not Allowed');
+      status(405).send("Method Not Allowed");
       break;
   }
 };
