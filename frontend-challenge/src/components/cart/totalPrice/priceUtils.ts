@@ -29,9 +29,14 @@ export const calculateTotalPrice = (cart: CartProduct[]) => {
 };
 
 const replaceLast = (text: string, toReplace: string, replaceWith: string) => {
-  return text.replace(
-    new RegExp(toReplace + "([^" + toReplace + "]*)$"),
-    replaceWith + "$1"
+  const index = text.lastIndexOf(toReplace);
+  if (index === -1) {
+    return text;
+  }
+  return (
+    text.substring(0, index) +
+    replaceWith +
+    text.substring(index + toReplace.length, text.length)
   );
 };
 
@@ -40,7 +45,7 @@ export const formatTotalPrice = (totalSum: TotalSum) => {
     return "N/A";
   }
   let commaDelimited = totalSum
-    .map((sum) => `${sum.price.toFixed(2)} ${sum.currency}`)
+    .map((sum) => `${parseFloat(sum.price.toFixed(2))} ${sum.currency}`)
     .join(", ");
   const lastComma = commaDelimited.lastIndexOf(", ");
   if (lastComma !== -1) {
