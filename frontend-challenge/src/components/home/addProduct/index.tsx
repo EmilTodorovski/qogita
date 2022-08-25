@@ -14,7 +14,7 @@ export const AddProduct = ({ product }: AddProductProps) => {
   const isAdded = !!cart.find(
     (cartProduct) => cartProduct.gtin === product.gtin
   );
-  const buttonText = isAdded ? "Addded" : "Add to cart";
+  const buttonText = isAdded ? "Added" : "Add to cart";
 
   const onAddToCart = () => {
     return editCart({ type: "add", product });

@@ -12,6 +12,7 @@ module.exports = {
     "!<rootDir>/*.config.js",
     "!<rootDir>/coverage/**",
   ],
+  setupFiles: ["<rootDir>/__mocks__/globals.js"],
   moduleNameMapper: {
     // Handle CSS imports (without CSS modules)
     "^.+\\.(css|sass|scss)$": "identity-obj-proxy",

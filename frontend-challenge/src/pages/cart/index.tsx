@@ -11,7 +11,7 @@ const CartPage = () => {
       <h1>Your Cart</h1>
       <TotalPrice cart={cart} />
       {cart.map((product) => (
-        <EditCartProduct product={product} />
+        <EditCartProduct key={product.gtin} product={product} />
       ))}
     </Layout>
   );

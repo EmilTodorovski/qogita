@@ -60,7 +60,7 @@ export const ProductsSelection = () => {
     <>
       <span>
         {products.map((product) => (
-          <AddProduct product={product} />
+          <AddProduct key={product.gtin} product={product} />
         ))}
       </span>
       <Pagination count={maxPage} page={page} onChange={onPageChange} />
