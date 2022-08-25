@@ -76,3 +76,14 @@ The `/products` endpoint accepts `GET` requests and will return the first page o
 #### `/products/[gtin]`
 
 The `/products/[gtin]` endpoint accepts `GET` requests and will return a product matching the GTIN (e.g. `/products/8005610625720`). If no product is found, the API will respond with a `404` status.
+
+## Devs Notes
+
+Regarding the requirements:
+
+- "The shopping cart's value should be prominently displayed" - wasn't sure exactly what does this mean, whether it should be easily visible on the page, as it is (with large font and bold text), or should be "floating" wherever the user scrolls (e.g. always visible)? If the latter, I can implement that as well :D
+- "and any non-functional requirements you see as appropriate" - there are many ideas how to further improve this, from caching the response/page on the frontend, saving the cart in local storage so it isnt lost on refresh, etc - but from the "This task should take 3-4 hours to complete" part, I guess optimizations like that are not needed.
+- If there was local storage, maybe the api for individual products would have been needed, to refresh the data - but so far I havent found any use for it.
+- Note that I have never used next.js and tailwind.css, so I might not know some patterns that are common, including naming conventions.
+- Ideally I would have written few integration tests, including "check the top links are working", "check if a product from the home page is added properly in the cart", "check if pagination works properly, the data from the second page is loaded, and the page indicator is the proper one". However, I had some problems using jest with the css modules, and within this timeframe I wasnt able to solve it.
+- I took "We expect you to prioritise the usability of your user-interface over how pretty it looks." really seriously, and as you can see, the design is an eye-sore. I've also left several components unimplemented, like "loading state", "error message", etc - in which there was nothing to be showcased further. If I shouldnt have done this, I please respond and I'll further polish the app up.

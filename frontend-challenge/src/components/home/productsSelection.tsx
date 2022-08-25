@@ -41,7 +41,6 @@ export const ProductsSelection = () => {
   }, [page]);
 
   const onPageChange = (_args: any, newPage: number) => {
-    console.log(newPage);
     dispatch({ page: newPage });
   };
 
