@@ -1,4 +1,5 @@
 module.exports = {
+  verbose: true,
   collectCoverage: true,
   // on node 14.x coverage provider v8 offers good speed and more or less good report
   coverageProvider: "v8",
@@ -12,12 +13,8 @@ module.exports = {
     "!<rootDir>/coverage/**",
   ],
   moduleNameMapper: {
-    // Handle CSS imports (with CSS modules)
-    // https://jestjs.io/docs/webpack#mocking-css-modules
-    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-
     // Handle CSS imports (without CSS modules)
-    "^.+\\.(css|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+    "^.+\\.(css|sass|scss)$": "identity-obj-proxy",
 
     // Handle image imports
     // https://jestjs.io/docs/webpack#handling-static-assets

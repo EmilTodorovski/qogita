@@ -5,7 +5,7 @@
   "description": "Qogita's Front-End Technical Challenge.",
   "main": "src/index.tsx",
   "scripts": {
-    "dev": "NODE_OPTIONS=--openssl-legacy-provider next dev",
+    "dev": "next dev",
     "build": "next build",
     "prestart": "npm run build",
     "start": "next start",
